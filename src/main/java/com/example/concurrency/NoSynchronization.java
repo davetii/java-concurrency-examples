@@ -1,25 +1,21 @@
 package com.example.concurrency;
 
-public class BasicSynchronization {
+public class NoSynchronization {
     private static int counter=0;
-
-    public static synchronized void increment() {
-        ++counter;
-    }
 
     public static void process() {
         Thread t1 = new Thread(new Runnable() {
-            public void run() {
-                for(int i=0; i< 1000; i++) {
-                    increment();
-                }
+          public void run() {
+            for(int i=0; i< 1000; i++) {
+                ++counter;
             }
+          }
         });
 
         Thread t2 = new Thread(new Runnable() {
             public void run() {
                 for(int i=0; i< 1000; i++) {
-                    increment();
+                    ++counter;
                 }
             }
         });
