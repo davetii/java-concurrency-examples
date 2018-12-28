@@ -1,6 +1,6 @@
 package com.example.concurrency;
 
-class Processor {
+class ProcessorOld {
     public void produce() throws InterruptedException {
 
         synchronized (this) {
